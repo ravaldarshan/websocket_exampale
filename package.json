@@ -23,6 +23,7 @@
         "@heroicons/vue": "^2.0.16",
         "@kyvg/vue3-notification": "^2.9.0",
         "laravel-echo": "^1.15.0",
+        "pinia": "^2.0.33",
         "pusher-js": "^8.0.1",
         "vue-router": "^4.1.6"
     }

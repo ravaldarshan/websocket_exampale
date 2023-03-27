@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [AuthController::class, 'login'])->name('home');
+
 // Route::post('/add', function(Request $request){
 //    $user=  User::find(1);
 //    $user->name =$request->name;
 //    $user->save();
 //     // return $request->name;
 // });
-

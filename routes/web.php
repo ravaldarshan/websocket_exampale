@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('chat', [App\Http\Controllers\HomeController::class, 'chat'])->name('chat');
@@ -35,6 +35,8 @@ Route::post('messages', [App\Http\Controllers\HomeController::class, 'messageSto
 //     $user->save();
 //      // return $request->name;
 //  });
-Auth::routes();
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Auth::routes();
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
