@@ -3,10 +3,14 @@ import './bootstrap';
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import app from './layouts/app.vue'
-import router from './router/index.js'
+import router from '@/router'
+
 import axios from 'axios'
-import Notifications from '@kyvg/vue3-notification'
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+// import Notifications from '@kyvg/vue3-notification'
 const pinia = createPinia()
+// import {useRouter} from 'vue-router'
 // import 'flowbite';
 // import store from "./store/index.js";
 // ExampleComponent
@@ -19,5 +23,6 @@ createApp(app)
 // .use(store)
 .use(pinia)
 .use(router)
-.use(Notifications)
+// .use(useRouter)
+.use(Toast)
 .mount('#app')

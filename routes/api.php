@@ -17,10 +17,11 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    Route::post('/logout', [AuthController::class, 'logout']);
     return $request->user();
 });
 
-Route::post('/login', [AuthController::class, 'login'])->name('home');
+Route::post('/login', [AuthController::class, 'login']);
 
 // Route::post('/add', function(Request $request){
 //    $user=  User::find(1);

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -40,7 +43,7 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'SUCCESS',
                 'token' => $token,
-            ], 200);
+            ]);
             // return response([
             //     'status'=> 200,
             //     'message'=> "login sucsses",
