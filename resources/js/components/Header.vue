@@ -1,3 +1,21 @@
+<script setup>
+ import { ref,onMounted  } from 'vue';
+
+ var isAuthenticated = ref(false);
+
+onMounted(() => {
+  console.log('mouted')
+  if(sessionStorage.getItem('token')){
+
+    isAuthenticated.value = true;
+  }
+    console.log(isAuthenticated.value)
+})
+function Logout(){
+  sessionStorage.removeItem("token");
+  isAuthenticated.value = false;
+}
+</script>
 <template>
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -23,17 +41,16 @@
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
         </li>
+        <li v-ref="isAuthenticated" >
+          <router-link href="#" to="/" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</router-link>
+        </li>
         <li>
-          <router-link href="#" to="/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</router-link>
+          <a href="#" v-if="isAuthenticated" @click="Logout" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
+          <router-link href="#" v-if="!isAuthenticated" to="/login" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</router-link>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 </template>
-<script>
-export default {
-  name: "Header_componets",
-};
-</script>
 

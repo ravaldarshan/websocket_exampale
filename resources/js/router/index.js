@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: "/login",
-    name: "login",
+    name: "Login",
     component: Login,
   },
 ];
@@ -21,6 +21,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+//prevent auth user for login page 
 router.beforeEach((to, from, next) => {
   const isAuthenticated = !!sessionStorage.getItem('token');
 
@@ -32,17 +34,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
-// router.beforeEach((to, from, next) => {
-//   // if(to.matched.some(record => record.meta.requiresAuth)) {
-//     if (sessionStorage.getItem('token')) {
-//       next()
-//       return
-//     }
-//     next('/login')
-//   // } else {
-//   //   next()
-//   // }
-// });
 
 export default router;
