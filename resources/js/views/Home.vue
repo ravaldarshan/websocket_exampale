@@ -3,10 +3,14 @@
 	import HomeCarousel from "@/components/carousel/HomeCarousel.vue";
 	import HeroSection from "@/components/HeroSection.vue";
 	import CardSection from "@/components/CardSection.vue";
+	import CtaSection from "@/components/Cta.vue";
+	import TeamsSection from "@/components/Teams.vue";
 </script>
 
 <template>
 	<HeroSection/>
 	<HomeCarousel/>
 	<CardSection/>
+	<TeamsSection/>
+	<CtaSection/>
 </template>
