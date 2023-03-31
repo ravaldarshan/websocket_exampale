@@ -72,13 +72,13 @@ onMounted(() => {
         
         // callback functions
         onNext: () => {
-            console.log('next slider item is shown');
+            // console.log('next slider item is shown');
         },
         onPrev: ( ) => {
-            console.log('previous slider item is shown');
+            // console.log('previous slider item is shown');
         },
         onChange: ( ) => {
-            console.log('new slider item has been shown');
+            // console.log('new slider item has been shown');
         }
     };
 

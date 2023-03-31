@@ -2,23 +2,54 @@ import { createWebHistory, createRouter } from "vue-router";
 import Login from "@/views/auth/Login.vue";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import UserPanelLayout from "@/layouts/UserPanel.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+
 
 const routes = [
-  //home routs
+  //home page and static routs
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    component: DefaultLayout,
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: Home,
+      },
+      {
+        path: "/login",
+        name: "Login",
+        component: Login,
+      },
+      {
+        path: "/about",
+        name: "About",
+        component: About,
+        meta: {
+          title: 'About Us',
+          metaTags: [
+            {
+              name: 'description',
+              content: 'Learn more about our company and what we do.'
+            }
+          ]
+        }
+      },
+    ],
   },
+ 
+  //user panel nested routev
   {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: About,
+    path: "/userpanel",
+    component: UserPanelLayout,
+    children: [
+      {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: About,
+      },
+    ],
   },
 ];
 

@@ -22,9 +22,11 @@
         "@headlessui/vue": "^1.7.12",
         "@heroicons/vue": "^2.0.16",
         "@kyvg/vue3-notification": "^2.9.0",
+        "@unhead/vue": "^1.1.25",
         "laravel-echo": "^1.15.0",
         "pinia": "^2.0.33",
         "pusher-js": "^8.0.1",
+        "vue-meta": "^3.0.0-alpha.2",
         "vue-router": "^4.0.13",
         "vue-toastification": "^2.0.0-rc.5"
     }
