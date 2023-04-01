@@ -14,10 +14,9 @@ if(sessionStorage.getItem('token')){
   axios.defaults.headers.common['Authorization'] = 'Bearer '+sessionStorage.getItem('token');
 }
 
-const head = createHead()
 createApp(app)
 .use(pinia)
 .use(router)
-.use(head)
+.use(createHead())
 .use(Toast)
 .mount('#app')
