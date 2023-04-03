@@ -1,8 +1,8 @@
 
 <script setup>
-import {onMounted} from "vue";
+import {onMounted,ref, computed} from "vue";
 import { Tabs } from 'flowbite'
-import { useHead } from '@unhead/vue'
+import { useHead, useSeoMeta } from '@unhead/vue'
 import imageUrl from "@/assets/images/image1.png";
 import imageUrl2 from "@/assets/images/image2.png";
 import aboutus from "@/assets/images/aboutus/benner1.jpg";
@@ -19,27 +19,37 @@ const items = [
 ];
 
 
-const myPage = ref({ description: 'This is my page' })
-const title = ref('title')
-const myScript = computed(() => ({
-  src: 'https://example.com/script.js',
-  defer: true,
-}))
+const title = ref('About Us')
+const metaobj =  [
+            {
+                name: 'description',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at sollicitudin nibh, non consequat enim. Integer laoreet, quam ac interdum auctor, lorem ipsum dignissim nisl, eu molestie justo velit vel nulla. Donec in venenatis ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at sollicitudin nibh, non consequat enim. Integer laoreet, quam ac interdum auctor, lorem ipsum dignissim nisl, eu molestie justo velit vel nulla. Donec in venenatis ipsum.' 
+            }, 
+            {
+                name: 'robots',
+                content: 'Lorem ipsum dolor sit amet,' 
+            }, 
+            {
+                name: 'googlebot',
+                content: 'Lorem ipsum dolor sit amet,' 
+            }, 
+        ]
 
-useHead({
-  // ref (recommended)
-  title,
-  // computer getter (recommended)
-  meta: [ { name: 'description', content: () => myPage.value.description }, ],
-  // computed (not recommended)
-  script: [ computed(() => ({
-    src: 'https://example.com/script.js',
-    defer: true,
-  })) ],
-})
+        // useHead({
+        //   title,
+        //   meta: metaobj
+        // })
+    useSeoMeta({
+        title,
+        meta: metaobj,
+        description: 'My about page',
+        ogDescription: 'Still about my about page',
+        ogTitle: 'About',
+        ogImage: 'https://example.com/image.png',
+        twitterCard: 'summary_large_image',
+        })
 
 onMounted(() => {
- // create an array of objects with the id, trigger element (eg. button), and the content element
  const tabElements = [
         {
             id: 'stats', //tab id

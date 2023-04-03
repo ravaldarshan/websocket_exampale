@@ -5,6 +5,8 @@ import About from "@/views/About.vue";
 import UserPanelLayout from "@/layouts/UserPanel.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
+import Deshboard from "@/views/userpanel/Home.vue";
+
 
 const routes = [
   //home page and static routs
@@ -47,7 +49,7 @@ const routes = [
       {
         path: "/dashboard",
         name: "Dashboard",
-        component: About,
+        component: Deshboard,
       },
     ],
   },
