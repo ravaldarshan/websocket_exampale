@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/{any}', function () {
+
+    // dd(app());
     return view('welcome');
 })->where('any','.*');
 
