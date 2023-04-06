@@ -14,6 +14,14 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    {{-- <link href="{{ asset('build/assets/app-5005f49e.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/assets/app-4522082c.css') }}" rel="stylesheet"> --}}
+
+    {{-- <script type="module" src="{{ asset('/build/manifest.json') }}"> </script> --}}
+    <!-- if development -->
+    {{-- <script type="module" src="http://localhost:5173/@vite/client"></script> --}}
+    {{-- <script type="module" src="http://localhost:5173/main.js"></script> --}}
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -79,5 +87,7 @@
         @yield('content')
     </main> --}}
     {{-- {{auth()->user()}} --}}
+    {{-- <script src="{{ asset('build/assets/app-d8a71ecb.js') }}"></script> --}}
+
 </body>
 </html>
